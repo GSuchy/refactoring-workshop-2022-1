@@ -31,8 +31,9 @@ public:
     Controller& operator=(Controller const& p_rhs) = delete;
 
     void receive(std::unique_ptr<Event> e) override;
-
+   
 private:
+    
     struct Segment
     {
         int x;
@@ -49,6 +50,8 @@ private:
 
     Direction m_currentDirection;
     std::list<Segment> m_segments;
+
+    bool ownTailBitten(Segment newHead);
 };
 
 } // namespace Snake
